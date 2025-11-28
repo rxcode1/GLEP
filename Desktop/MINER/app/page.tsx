@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ParallaxLayers from "@/components/ParallaxLayers";
 import DepthMeter from "@/components/DepthMeter";
@@ -30,6 +31,7 @@ export default function Home() {
 
   return (
     <div ref={containerRef} className="relative min-h-screen">
+      <Header />
       <Hero />
       <ParallaxLayers scrollProgress={scrollProgress} />
       <DepthMeter progress={scrollProgress} />
