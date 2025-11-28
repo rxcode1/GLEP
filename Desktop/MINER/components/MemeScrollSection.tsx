@@ -148,11 +148,8 @@ export default function MemeScrollSection() {
                   alt={meme.alt}
                   width={600}
                   height={800}
-                  className="rounded-lg shadow-2xl mx-auto"
-                  style={{
-                    maxWidth: "100%",
-                    height: "auto",
-                  }}
+                  className="rounded-lg shadow-2xl mx-auto w-full h-auto"
+                  priority={index === 0}
                 />
               </motion.div>
               <motion.p

@@ -34,7 +34,7 @@ export default function EndCelebration() {
       // Only trigger celebration if we're past the infinite section start
       if (infiniteSectionStartRef.current === null || scrollTop < infiniteSectionStartRef.current) {
         // Reset tracking if we scroll back up
-        if (scrollTop < infiniteSectionStartRef.current) {
+        if (infiniteSectionStartRef.current !== null && scrollTop < infiniteSectionStartRef.current) {
           lastScrollPositionRef.current = scrollTop;
           totalScrollDepthRef.current = 0;
         }
