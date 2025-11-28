@@ -5,7 +5,10 @@ export const metadata: Metadata = {
   title: "The Meme Miner - Don't Stop Now",
   description: "The diamonds are closer than you think. Keep digging.",
   icons: {
-    icon: "/favicon.jpg",
+    icon: [
+      { url: "/favicon.jpg", type: "image/jpeg" },
+      { url: "/icon.jpg", type: "image/jpeg" },
+    ],
     shortcut: "/favicon.jpg",
     apple: "/favicon.jpg",
   },
@@ -19,7 +22,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="icon" href="/favicon.jpg" />
+        <link rel="icon" href="/favicon.jpg" type="image/jpeg" />
+        <link rel="shortcut icon" href="/favicon.jpg" type="image/jpeg" />
         <link rel="apple-touch-icon" href="/favicon.jpg" />
       </head>
       <body className="antialiased">{children}</body>
