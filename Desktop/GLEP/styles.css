@@ -11,6 +11,9 @@ body {
     line-height: 1.6;
     min-height: 100vh;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    touch-action: pan-y;
 }
 
 .hero-section {
@@ -21,6 +24,7 @@ body {
     display: flex;
     align-items: center;
     overflow: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 /* Green animated background */
@@ -302,97 +306,110 @@ h1 {
     }
 }
 
-/* Responsive design */
+/* Responsive design - maintain desktop layout on mobile */
 @media (max-width: 1024px) {
     h1 {
-        font-size: 4rem;
-    }
-    
-    .green-bar {
-        left: 30%;
+        font-size: clamp(3rem, 8vw, 5rem);
     }
     
     .hero-content {
-        margin-left: 3%;
-        max-width: 500px;
+        padding: clamp(30px, 6vw, 60px) clamp(20px, 4vw, 40px);
+        margin-left: clamp(2%, 5vw, 5%);
+    }
+    
+    .hero-description {
+        font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    }
+    
+    .ca-button {
+        font-size: clamp(0.75rem, 2vw, 0.9rem);
+        padding: clamp(10px, 2vw, 12px) clamp(16px, 3vw, 24px);
     }
     
     .character-container {
-        width: 45%;
-        height: 100%;
+        width: clamp(50%, 60vw, 60%);
     }
 }
 
 @media (max-width: 768px) {
     h1 {
-        font-size: 3rem;
+        font-size: clamp(2.5rem, 10vw, 5rem);
     }
     
     .hero-description {
-        font-size: 1rem;
+        font-size: clamp(0.85rem, 3vw, 1.1rem);
+        max-width: 90%;
     }
     
     .hero-content {
-        padding: 40px 20px;
-        margin-left: 2%;
-        max-width: 400px;
-    }
-    
-    .green-bar {
-        left: 25%;
-        width: 6px;
+        padding: clamp(20px, 5vw, 60px) clamp(15px, 4vw, 40px);
+        margin-left: clamp(2%, 5vw, 5%);
+        max-width: clamp(300px, 90vw, 600px);
     }
     
     .character-container {
-        width: 40%;
-        height: 100%;
-        opacity: 0.7;
+        width: clamp(55%, 60vw, 60%);
     }
     
     .icon-box {
-        width: 45px;
-        height: 45px;
+        width: clamp(40px, 8vw, 50px);
+        height: clamp(40px, 8vw, 50px);
+        padding: clamp(15px, 3vw, 20px) clamp(20px, 4vw, 30px);
     }
     
     .icon-box svg {
-        width: 20px;
-        height: 20px;
+        width: clamp(20px, 5vw, 24px);
+        height: clamp(20px, 5vw, 24px);
+    }
+    
+    .water-animation {
+        height: clamp(80px, 15vw, 120px);
     }
 }
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 2.5rem;
-        margin-bottom: 15px;
+        font-size: clamp(2rem, 12vw, 5rem);
+        letter-spacing: clamp(1px, 0.5vw, 2px);
     }
     
     .hero-content {
-        padding: 30px 15px;
-        max-width: 90%;
+        padding: clamp(15px, 5vw, 60px) clamp(10px, 3vw, 40px);
+        margin-left: clamp(2%, 4vw, 5%);
     }
     
-    .green-bar {
-        display: none;
+    .hero-description {
+        font-size: clamp(0.8rem, 4vw, 1.1rem);
+        margin-bottom: clamp(20px, 4vw, 30px);
+    }
+    
+    .ca-button {
+        font-size: clamp(0.7rem, 3vw, 0.9rem);
+        padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 24px);
+        margin-bottom: clamp(20px, 4vw, 30px);
     }
     
     .character-container {
-        width: 100%;
-        position: relative;
-        transform: none;
-        top: auto;
-        bottom: auto;
-        opacity: 0.5;
-        margin-top: 20px;
-        height: 300px;
+        width: clamp(55%, 60vw, 60%);
     }
     
+    .icon-row {
+        gap: clamp(15px, 4vw, 30px);
+    }
+    
+    .water-animation {
+        height: clamp(60px, 12vw, 120px);
+    }
+}
+
+/* Ensure proper scaling on very small screens */
+@media (max-width: 360px) {
     .hero-section {
-        flex-direction: column;
-        min-height: auto;
-        padding-bottom: 100px;
+        min-height: 100vh;
+        height: auto;
     }
     
-    .wavy-border {
-        height: 60px;
+    h1 {
+        font-size: clamp(1.8rem, 14vw, 5rem);
     }
 }
