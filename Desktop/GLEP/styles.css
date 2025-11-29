@@ -1,0 +1,398 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #006644;
+    color: #ffffff;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Green animated background */
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #006644 0%, #008855 50%, #007744 100%);
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* Animated green background layers */
+.background-overlay::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(circle at 30% 30%, rgba(0, 170, 85, 0.8) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(0, 136, 68, 0.9) 0%, transparent 50%);
+    animation: pulse1 8s ease-in-out infinite;
+    z-index: 1;
+}
+
+.background-overlay::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(circle at 50% 50%, rgba(0, 153, 77, 0.7) 0%, transparent 60%),
+        radial-gradient(circle at 80% 20%, rgba(0, 170, 100, 0.6) 0%, transparent 50%);
+    animation: pulse2 10s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes pulse1 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(10%, 10%) scale(1.1);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse2 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translate(-10%, -10%) scale(1.15);
+        opacity: 0.9;
+    }
+}
+
+
+/* Hero content (text) */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    padding: 60px 40px;
+    max-width: 600px;
+    margin-left: 5%;
+}
+
+h1 {
+    font-size: 5rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+    line-height: 1.1;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    max-width: 500px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Contract address button */
+.ca-button {
+    display: inline-block;
+    background: #ffffff;
+    color: #000000;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    max-width: 100%;
+    word-break: break-all;
+    line-height: 1.4;
+    user-select: none;
+}
+
+.ca-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ca-button:hover {
+    transform: translateY(-2px);
+}
+
+/* Icon row */
+.icon-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.icon-box {
+    width: 50px;
+    height: 50px;
+    background: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.icon-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.icon-box svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Character container on the right */
+.character-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 60%;
+    height: 100%;
+    z-index: 3;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.character-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right bottom;
+    filter: drop-shadow(-5px 5px 20px rgba(0, 0, 0, 0.6));
+    display: block;
+}
+
+/* Green flowing water animation */
+.water-animation {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    z-index: 4;
+    overflow: hidden;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 255, 136, 0.8), rgba(0, 204, 106, 0.9));
+    opacity: 0.7;
+}
+
+.wave1 {
+    animation: flow 15s linear infinite;
+    background: linear-gradient(to bottom, 
+        rgba(0, 255, 136, 0.6) 0%,
+        rgba(0, 204, 106, 0.8) 50%,
+        rgba(0, 170, 85, 0.9) 100%
+    );
+    clip-path: polygon(
+        0% 80%,
+        10% 75%,
+        20% 78%,
+        30% 72%,
+        40% 76%,
+        50% 70%,
+        60% 74%,
+        70% 68%,
+        80% 72%,
+        90% 68%,
+        100% 70%,
+        100% 100%,
+        0% 100%
+    );
+}
+
+.wave2 {
+    animation: flow 20s linear infinite;
+    animation-delay: -5s;
+    background: linear-gradient(to bottom, 
+        rgba(0, 255, 136, 0.5) 0%,
+        rgba(0, 220, 110, 0.7) 50%,
+        rgba(0, 190, 95, 0.85) 100%
+    );
+    clip-path: polygon(
+        0% 75%,
+        12% 70%,
+        24% 73%,
+        36% 67%,
+        48% 71%,
+        60% 65%,
+        72% 69%,
+        84% 63%,
+        96% 67%,
+        100% 65%,
+        100% 100%,
+        0% 100%
+    );
+}
+
+.wave3 {
+    animation: flow 25s linear infinite;
+    animation-delay: -10s;
+    background: linear-gradient(to bottom, 
+        rgba(0, 255, 136, 0.4) 0%,
+        rgba(0, 230, 115, 0.6) 50%,
+        rgba(0, 200, 100, 0.8) 100%
+    );
+    clip-path: polygon(
+        0% 85%,
+        8% 80%,
+        16% 83%,
+        24% 77%,
+        32% 81%,
+        40% 75%,
+        48% 79%,
+        56% 73%,
+        64% 77%,
+        72% 71%,
+        80% 75%,
+        88% 69%,
+        96% 73%,
+        100% 71%,
+        100% 100%,
+        0% 100%
+    );
+}
+
+@keyframes flow {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 4rem;
+    }
+    
+    .green-bar {
+        left: 30%;
+    }
+    
+    .hero-content {
+        margin-left: 3%;
+        max-width: 500px;
+    }
+    
+    .character-container {
+        width: 45%;
+        height: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .hero-content {
+        padding: 40px 20px;
+        margin-left: 2%;
+        max-width: 400px;
+    }
+    
+    .green-bar {
+        left: 25%;
+        width: 6px;
+    }
+    
+    .character-container {
+        width: 40%;
+        height: 100%;
+        opacity: 0.7;
+    }
+    
+    .icon-box {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .icon-box svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .hero-content {
+        padding: 30px 15px;
+        max-width: 90%;
+    }
+    
+    .green-bar {
+        display: none;
+    }
+    
+    .character-container {
+        width: 100%;
+        position: relative;
+        transform: none;
+        top: auto;
+        bottom: auto;
+        opacity: 0.5;
+        margin-top: 20px;
+        height: 300px;
+    }
+    
+    .hero-section {
+        flex-direction: column;
+        min-height: auto;
+        padding-bottom: 100px;
+    }
+    
+    .wavy-border {
+        height: 60px;
+    }
+}
