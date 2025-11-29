@@ -222,9 +222,12 @@ function WebcamCapture({
   const [stream, setStream] = useState<MediaStream | null>(null);
 
   useEffect(() => {
+    let currentStream: MediaStream | null = null;
+    
     navigator.mediaDevices
       .getUserMedia({ video: true })
       .then((mediaStream) => {
+        currentStream = mediaStream;
         setStream(mediaStream);
         if (videoRef.current) {
           videoRef.current.srcObject = mediaStream;
@@ -236,8 +239,8 @@ function WebcamCapture({
       });
 
     return () => {
-      if (stream) {
-        stream.getTracks().forEach((track) => track.stop());
+      if (currentStream) {
+        currentStream.getTracks().forEach((track) => track.stop());
       }
     };
   }, []);

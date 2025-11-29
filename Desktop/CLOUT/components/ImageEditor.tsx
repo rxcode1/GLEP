@@ -657,11 +657,11 @@ export default function ImageEditor({ imageSrc, onDownload, onReset }: ImageEdit
             <p className="text-lg font-bold mb-2 uppercase">INSTRUCTIONS:</p>
             <ul className="text-sm space-y-2 opacity-80">
               <li>• Glasses auto-detect faces on upload</li>
-              <li>• Click "ADD GLASSES" to manually add</li>
+              <li>• Click &quot;ADD GLASSES&quot; to manually add</li>
               <li>• Drag to adjust position</li>
               <li>• Use corner handles to resize</li>
               <li>• Rotate with top handle</li>
-              <li>• Click "DOWNLOAD" when done</li>
+              <li>• Click &quot;DOWNLOAD&quot; when done</li>
             </ul>
           </div>
         </div>

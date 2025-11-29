@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 interface CloutGlassesLogoProps {
   size?: number;
   className?: string;
@@ -15,7 +17,7 @@ export default function CloutGlassesLogo({ size = 100, className = "" }: CloutGl
       className={`inline-block ${className}`}
       style={{ width: size, height: height }}
     >
-      <img
+      <Image
         src="/glasses.png"
         alt="Clout Glasses"
         width={size}

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import CloutGlassesLogo from "@/components/CloutGlassesLogo";
 
 export default function Home() {
@@ -290,11 +291,15 @@ export default function Home() {
                   }}
                 >
                   {/* Sample image */}
-                  <img
-                    src={meme.image}
-                    alt={meme.title}
-                    className="absolute inset-0 w-full h-full object-cover z-0"
-                  />
+                  <div className="absolute inset-0 w-full h-full">
+                    <Image
+                      src={meme.image}
+                      alt={meme.title}
+                      fill
+                      className="object-cover z-0"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
                   <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-90 p-3 text-white text-center border-t-2 border-white z-10">
                     <p className="text-base font-black uppercase mb-1">{meme.title}</p>
                     <p className="text-xs opacity-80">{meme.description}</p>
@@ -369,7 +374,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-8 px-4 border-t-4 border-white text-center">
         <p className="text-lg font-bold opacity-70">
-          © 2024 CLOUT GLASSES - THIS IS STUPID BUT WE LOVE IT
+          © 2024 CLOUT GLASSES
         </p>
       </footer>
     </main>
